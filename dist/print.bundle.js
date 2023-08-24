@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ printMe)\n/* harmony export */ });\nfunction printMe() {\r\n    console.log('I get called from print.js!');\r\n  }\n\n//# sourceURL=webpack://to_do_list/./src/print.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   addList: () => (/* binding */ addList)\n/* harmony export */ });\n\r\nconst todoList = [\r\n  {\r\n    description: 'wash the dish',\r\n    completed: true,\r\n    index: 0,\r\n  },\r\n  {\r\n    description: 'clean the dish',\r\n    completed: true,\r\n    index: 1,\r\n  },\r\n  {\r\n    description: 'complete to do list project',\r\n    completed: true,\r\n    index: 2,\r\n  },\r\n]\r\nfunction addList(){\r\n  const mylist = document.getElementById('listItem');\r\n  const listElements = todoList.map((todo) =>{\r\n    const div = document.createElement('div');\r\n    div.className ='listElement';\r\n    const description = document.createElement('p');\r\n    description.innerText =todo.description;\r\n    \r\n    const completed = document.createElement('div');\r\n    completed.innerText =todo.completed;\r\n    const clearBtn = document.createElement('button');\r\n    clearBtn.innerText = 'Clear';\r\n\r\n    div.appendChild(description);\r\n    div.appendChild(completed);\r\n    div.appendChild(clearBtn);\r\n\r\n    return div;\r\n\r\n  });\r\n  mylist.append(...listElements);\r\n}\r\n\r\n\n\n//# sourceURL=webpack://to_do_list/./src/print.js?");
 
 /***/ })
 
