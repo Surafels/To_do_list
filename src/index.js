@@ -1,41 +1,38 @@
 import './style.css';
 
-const addList = [
-  {
-    description: 'wash the dish',
-    completed: true,
-    index: 1,
-  },
-  {
-    description: 'clean the dish',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'complete to do list project',
-    completed: true,
-    index: 3,
-  },
-];
+const listItem = document.getElementById('listItem');
+const clearBtn = document.getElementsByClassName('clearBtn');
+const addIcon = document.getElementById('addIcon');
+const addInput = document.getElementById('addInput');
+const todoList=() =>{
+  let tasks = JSON.parse(localStorage.getItem(tasks)) || [];
+  const storedTask =()=>{
+    localStorage.setItem(storedTask, JSON.stringify(tasks));
 
-function doListProject() {
-  const list = document.getElementById('listItem');
-  addList.forEach((todo) => {
-    const div = document.createElement('div');
-    div.className = 'taskContainer';
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.checked = todo.completed;
-    const description = document.createElement('p');
-    description.innerHTML = todo.description;
+  }
 
-    const ellipsisIcon = document.createElement('i');
-    ellipsisIcon.className = 'fas fa-ellipsis-v';
-
-    div.appendChild(checkbox);
-    div.appendChild(description);
-    div.appendChild(ellipsisIcon);
-    list.appendChild(div);
+  const addTask=(description) =>{
+    const newTask ={
+      description: description,
+      completed: false,
+      index: tasks.length+1,
+    }
+    tasks.push(newTask);
+    storedTask()
+    console.log('new task add', newTask);
+    console.log("tasks", tasks);
+  };
+  addIcon.addEventListener('click',(event) =>{
+    event.preventDefault();
+    const description = addInput.value;
+    addTask(description);
   });
+  
 }
-document.addEventListener('DOMContentLoaded', doListProject);
+todoList();
+
+
+
+
+
+
