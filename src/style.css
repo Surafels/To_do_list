@@ -1,19 +1,22 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.taskContainer{
-  display:flex;
+.taskContainer {
+  display: flex;
   padding: 10px;
-  gap:10px;
+  gap: 10px;
 }
-form{
+
+form {
   padding: 10px;
 }
-section{
+
+section {
   margin: 24px;
 }
-.clearBtn{
+
+.clearBtn {
   margin: 10px auto;
 }
