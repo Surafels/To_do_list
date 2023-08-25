@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
-#listItem{
-  display: flex;
+
+.taskContainer{
+  display:flex;
+  padding: 10px;
+  gap:10px;
 }
