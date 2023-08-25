@@ -31,11 +31,15 @@ body {
   padding: 20px;
   border: none;
 }
+#addIcon{
+  cursor: pointer;
+}
 
 .icon {
   display: flex;
   align-items: center;
   margin-left: 36px;
+
 }
 
 form {
