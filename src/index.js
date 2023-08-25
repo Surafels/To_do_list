@@ -1,5 +1,4 @@
 import './style.css';
-const list =document.getElementById('listItem');
 const addList = [
   {
     description: 'wash the dish',
@@ -18,17 +17,27 @@ const addList = [
   },
 ]
 
-const itemList = function(){
-  list.innerHTML = '';
-  addList.forEach((item) =>{
-    list.innerHTML += `
-    <div class="ad-list">
-    <input type="checkbox" />
-    <p>${item.description}</p>
-    </div>
+function doListProject(){
+  const list =document.getElementById('listItem');
+addList.forEach((todo) => {
+  const div = document.createElement('div');
+  div.className = 'listElement';
+  const description = document.createElement('p');
+  description.innerHTML = todo.description;
+  const completeTasks = document.createElement('div');
+  completeTasks.className = 'completeTasks';
+  const adBtn = document.createElement('button');
+  completeTasks.appendChild(adBtn);
+  adBtn.innerText ='Complete'
+  adBtn.className = 'adBtn';
+  const remove = document.createElement('button');
+  remove.className = 'removeBtn';
+  remove.innerText ='Remove';
 
-    `
-  });
-};
-
-window.addEventListener('load',itemList );
+  div.appendChild(completeTasks);
+  div.appendChild(description);
+  div.appendChild(remove);
+  list.appendChild(div);
+});
+}
+document.addEventListener('DOM ContentLoad', doListProject);  
