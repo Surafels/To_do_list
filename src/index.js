@@ -29,13 +29,12 @@ function doListProject() {
     const description = document.createElement('p');
     description.innerHTML = todo.description;
 
-    const remove = document.createElement('button');
-    remove.className = 'removeBtn';
-    remove.innerText = 'Remove';
+    const ellipsisIcon = document.createElement('i');
+    ellipsisIcon.className = 'fas fa-ellipsis-v';
 
     div.appendChild(checkbox);
     div.appendChild(description);
-    div.appendChild(remove);
+    div.appendChild(ellipsisIcon);
     list.appendChild(div);
   });
 }

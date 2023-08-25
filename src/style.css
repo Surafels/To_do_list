@@ -2,21 +2,84 @@
   margin: 0;
   padding: 0;
 }
+body{
+  background-color:rgb(247,245,247); 
+}
+.heading{
+  display: flex;
+  justify-content: space-between;
+  color: rgb(119,119,125);
+  align-items: center;
+    margin-top: 20px;
+    padding: 20px 65px 20px 20px;
+    border-bottom: 1px solid #ECEBEC;
+
+}
+
 
 .taskContainer {
-  display: flex;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  padding: 24px;
   gap: 10px;
+  color:#9F9E9F;
+  border-top: 1px solid #ECEBEC;
+  border-bottom: 1px solid #ECEBEC;
 }
-
-form {
-  padding: 10px;
+/* .taskHolder {
+display: flex;
+} */
+.fas fa-ellipsis-v{
+  display: flex; 
 }
+.add-form{
+  padding: 20px;
+  border: none;
 
-section {
+  
+} 
+.icon{
+  display: flex;
+  align-items: center;
+  margin-left: 36px;
+}
+form{
+  display: grid;
+  grid-template-columns: auto 50px;
+  width: 90%;
+  align-items: center;
+
+}
+ .ad-form{
+  display: grid;
+  grid-template-columns: auto auto;
+  color:rgb(119,119,125) ;
+  border-top: 1px solid #ECEBEC;
+  margin-top: 20px;
+
+}  
+/* #form-a{
+  display: flex;
+  color:rgb(119,119,125) ;
+  border-top: 1px solid #ECEBEC;
+  margin-top: 20px;
+  justify-content: space-around;
+} */
+.todo-page{
   margin: 24px;
+  background-color: #F7F5F7;
+  width: 658px;
+  margin: auto;
+}
+.l-todo{
+  background-color:rgb(255,255,255);
+  border:1px solid #ECEBEC;
+  margin-top:40px;
 }
 
 .clearBtn {
-  margin: 10px auto;
+  border: none;
+  margin: auto;
+  padding: 24px;
+  width: 100%;
 }
