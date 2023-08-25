@@ -1,4 +1,5 @@
 import './style.css';
+
 const addList = [
   {
     description: 'wash the dish',
@@ -15,28 +16,27 @@ const addList = [
     completed: true,
     index: 3,
   },
-]
+];
 
-function doListProject(){
-  const list =document.getElementById('listItem');
-addList.forEach((todo) => {
-  const div = document.createElement('div');
-  div.className = 'taskContainer';
-  const checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  checkbox.checked = todo.completed;
-  const description = document.createElement('p');
-  description.innerHTML = todo.description;
+function doListProject() {
+  const list = document.getElementById('listItem');
+  addList.forEach((todo) => {
+    const div = document.createElement('div');
+    div.className = 'taskContainer';
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = todo.completed;
+    const description = document.createElement('p');
+    description.innerHTML = todo.description;
 
-  const remove = document.createElement('button');
-  remove.className = 'removeBtn';
-  remove.innerText ='Remove';
+    const remove = document.createElement('button');
+    remove.className = 'removeBtn';
+    remove.innerText = 'Remove';
 
- 
-  div.appendChild(checkbox);
-  div.appendChild(description);
-  div.appendChild(remove);
-  list.appendChild(div);
-});
+    div.appendChild(checkbox);
+    div.appendChild(description);
+    div.appendChild(remove);
+    list.appendChild(div);
+  });
 }
-document.addEventListener('DOMContentLoaded', doListProject);  
+document.addEventListener('DOMContentLoaded', doListProject);
