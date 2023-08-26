@@ -9,11 +9,22 @@ const myTodoList = () => {
 
   const removeTask = (index) => {
     if (index >= 0 && index < saveList.length) {
-      saveList.splice(index, 1);
-      saveList.forEach((task, newIndex) => {
-        task.id = newIndex;
-      });
-      updateLocalStorage();
+      const taskContainers = document.querySelectorAll('.taskContainer');
+      if (taskContainers[index]) {
+        const ellipsisIcon = taskContainers[index].querySelector('.fas.fa-ellipsis-v');
+        if (ellipsisIcon) {
+          ellipsisIcon.classList.remove('fa-ellipsis-v');
+          ellipsisIcon.classList.add('fa-trash-alt');
+          ellipsisIcon.addEventListener('click', () => {
+            saveList.splice(index, 1);
+            saveList.forEach((task, newIndex) => {
+              task.index = newIndex;
+            });
+            updateLocalStorage();
+            // listElement();
+          });
+        }
+      }
     }
   };
 
@@ -47,7 +58,7 @@ const myTodoList = () => {
     input.focus();
   };
 
-  function listElement() {
+  const listElement = () => {
     list.innerHTML = '';
 
     saveList.forEach((task, index) => {
@@ -87,7 +98,7 @@ const myTodoList = () => {
     clearComplete.addEventListener('click', () => {
       clearCompletedTasks();
     });
-  }
+  };
 
   const addNewElement = (event) => {
     event.preventDefault();
@@ -96,7 +107,7 @@ const myTodoList = () => {
 
     if (description) {
       const newTask = {
-        id: saveList.length,
+        index: saveList.length + 1,
         description,
         complete: false,
       };
@@ -108,11 +119,15 @@ const myTodoList = () => {
     }
   };
 
+  const addButton = document.getElementById('add');
+  addButton.addEventListener('click', addNewElement);
+
   window.addEventListener('load', () => {
-    const addButton = document.getElementById('add');
     listElement();
-    addButton.addEventListener('click', addNewElement);
   });
 };
 
 export default myTodoList;
+
+// Call the function to initialize the todo list after it is defined
+myTodoList();
