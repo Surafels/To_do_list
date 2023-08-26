@@ -31,4 +31,33 @@ tasks = Array.from(list.children).map(function(item){
 storedTasks();
 }, false);
 
+function newElement(){
+  const li = document.createElement('li');
+  constninputValue =document.getElementById('ad-input').value;
+  const t = document.createTextNode('inputValue');
+  li.appendChild(t);
+  if(inputValue === ''){
+    alert('Please write something!');
+  } else{
+    document.getElementById('ulList').appendChild(li);
+
+  }
+  document.getElementById('ad-input').value = "";
+  const span = document.createElement('i');
+  span.className = 'fas fa-ellipsis-v';
+  li.appendChild(span);
+  span.onclick = function(){
+    const listItem = this.parentElement;
+    listItem.style.display = "none";
+    tasks.splice(i, 1);
+    storedTasks();
+  };
+
+  tasks.push(inputValue);
+  storedTasks();
 }
+
+const addBtn = document.getElementById('addBtn');
+addBtn.addEventListener('click', newElement);
+}
+
