@@ -20,4 +20,15 @@ icon.onclick =function() {
 };
 });
 
+const list = document.querySelector('ul');
+list.addEventListener('click', function(e){
+if(e.target.tagName === 'LI'){
+  e.target.classList.toggle('checked')
+}
+tasks = Array.from(list.children).map(function(item){
+  return item.innerText;
+});
+storedTasks();
+}, false);
+
 }
