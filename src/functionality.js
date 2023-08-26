@@ -7,7 +7,14 @@ const myTodoList = () => {
     localStorage.setItem('saveList', JSON.stringify(saveList));
   };
 
-  const removeTask = (index) => {
+  const markComplete = (index, complete) => {
+    if (index >= 0 && index < saveList.length) {
+      saveList[index].complete = complete;
+      updateLocalStorage();
+    }
+  };
+
+  const removeTask = (index, listElement) => {
     if (index >= 0 && index < saveList.length) {
       const taskContainers = document.querySelectorAll('.taskContainer');
       if (taskContainers[index]) {
@@ -21,17 +28,10 @@ const myTodoList = () => {
               task.index = newIndex;
             });
             updateLocalStorage();
-            // listElement();
+            listElement();
           });
         }
       }
-    }
-  };
-
-  const markComplete = (index, complete) => {
-    if (index >= 0 && index < saveList.length) {
-      saveList[index].complete = complete;
-      updateLocalStorage();
     }
   };
 
@@ -81,7 +81,7 @@ const myTodoList = () => {
       const ellipsisIcon = document.createElement('i');
       ellipsisIcon.className = 'fas fa-ellipsis-v';
       ellipsisIcon.addEventListener('click', () => {
-        removeTask(index);
+        removeTask(index, listElement);
       });
 
       completeTask.appendChild(completeCheckbox);
@@ -129,5 +129,3 @@ const myTodoList = () => {
 
 export default myTodoList;
 
-// Call the function to initialize the todo list after it is defined
-myTodoList();
