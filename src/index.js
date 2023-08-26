@@ -1,62 +1,51 @@
-import './style.css';
-
-const listItem = document.getElementById('listItem');
-const clearBtn = document.getElementsByClassName('clearBtn');
-const addIcon = document.getElementById('addIcon');
-const addInput = document.getElementById('addInput');
-const todoList=() =>{
-  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  const storedTask =()=>{
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-
+const setupTodoList = () => {
+  const myNodelist = document.getElementsByTagName("LI");
+  for (let i = 0; i < myNodelist.length; i++) {
+    const span = document.createElement("i");
+    span.className = "fas fa-ellipsis-v";
+    myNodelist[i].appendChild(span);
   }
 
-  const addTask=(description) =>{
-    const newTask ={
-      description: description,
-      completed: false,
-      index: tasks.length+1,
-    }
-    tasks.push(newTask);
-    storedTask();
-    location.reload();
-  };
-  const removeTasks =(index) => {
-tasks= tasks.filter((task) => task.index !== index);
-storedTask();
-location.reload();
-  };
-  const listTasks =() =>{
-    listItem.innerHTML ='';
-  tasks.forEach((task) => {
-  const taskElement = document.createElement('li');
-  taskElement.textContent = task.description;
-  const ellipsisIcon = document.createElement('i');
-      ellipsisIcon.className = 'fas fa-ellipsis-v';
-      ellipsisIcon.addEventListener('click',() =>{
-        removeTasks(task.index);
-
-      })
-      taskElement.appendChild(ellipsisIcon);
-    listItem.appendChild(taskElement);
-
-    });
-    
-  }
-  listTasks();
-  addIcon.addEventListener('click',(event) =>{
-    event.preventDefault();
-    const description = addInput.value.trim();
-    addTask(description);
+  const ellipsisIcons = document.querySelectorAll('.fas.fa-ellipsis-v');
+  ellipsisIcons.forEach(function(icon) {
+    icon.onclick = function() {
+      const listItem = this.parentElement;
+      listItem.style.display = "none";
+    };
   });
 
- 
-  
+  const list = document.querySelector('ul');
+  list.addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'LI') {
+      ev.target.classList.toggle('checked');
+    }
+  }, false);
+
+  function newElement() {
+    const li = document.createElement("li");
+    const inputValue = document.getElementById("myInput").value;
+    const t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    if (inputValue === '') {
+      alert("You must write something!");
+    } else {
+      document.getElementById("myUL").appendChild(li);
+    }
+    document.getElementById("myInput").value = "";
+
+    const span = document.createElement("i");
+    span.className = "fas fa-ellipsis-v";
+    li.appendChild(span);
+
+    span.onclick = function() {
+      const listItem = this.parentElement;
+      listItem.style.display = "none";
+    };
+  }
+
+  const addBtn = document.getElementById('addBtn');
+  addBtn.addEventListener('click', newElement);
 }
-todoList();
 
-
-
-
-
-
+// Call the setupTodoList function to initialize the todo list
+setupTodoList();
