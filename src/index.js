@@ -59,5 +59,24 @@ function newElement(){
 
 const addBtn = document.getElementById('addBtn');
 addBtn.addEventListener('click', newElement);
+
+
+tasks.forEach(function(task) {
+  const li = document.createElement("li");
+  const t = document.createTextNode(task);
+  li.appendChild(t);
+
+  const span = document.createElement("i");
+  span.className = "fas fa-ellipsis-v";
+  li.appendChild(span);
+
+  span.onclick = function() {
+    const listItem = this.parentElement;
+    listItem.style.display = "none";
+    tasks.splice(i, 1);
+    storedTasks();
+  };
+  document.getElementById("ulList").appendChild(li);
+})
 }
 
