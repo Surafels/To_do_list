@@ -1,9 +1,9 @@
-# mic-awesome-books
+# mic-To-Do-List
 
 <a name="readme-top"></a>
 
 <div align="center">
-  <h2>AwesomeBooks</h2>
+  <h2>To Do List</h2>
   <br/>
 </div>
 
@@ -28,7 +28,7 @@
 
 # 📖 Project name <a name="To do List"></a>
 
-**Awesome Books** A todo list website is a web application that allows users to create, manage, and organize tasks or items they need to do. It provides a user-friendly interface where users can add new tasks, mark tasks as completed, and remove tasks from the list.
+**Awesome Books** A to do list website is a web application that allows users to create, manage, and organize tasks or items they need to do. It provides a user-friendly interface where users can add new tasks, mark tasks as completed, and remove tasks from the list.
 
 ## 🛠 Built With <a name="built-with"></a>
 
