@@ -26,9 +26,9 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 Project name <a name="To do List"></a>
+# 📖 Project name <a name="Todo List - Add and remove"></a>
 
-**Awesome Books** A to do list website is a web application that allows users to create, manage, and organize tasks or items they need to do. It provides a user-friendly interface where users can add new tasks, mark tasks as completed, and remove tasks from the list.
+**Todo List** A to-do list website is a web application that allows users to create, manage, and organize tasks or items they need to do. It provides a user-friendly interface where users can add new tasks, mark tasks as completed, and remove tasks from the list.
 
 ## 🛠 Built With <a name="built-with"></a>
 
