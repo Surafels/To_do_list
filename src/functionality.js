@@ -88,6 +88,15 @@ const myTodoList = () => {
       completeTask.appendChild(taskDescription);
       completeTask.appendChild(ellipsisIcon);
       list.appendChild(completeTask);
+
+      completeCheckbox.addEventListener('click', (event) => {
+        markComplete(index, event.target.checked);
+        if (event.target.checked) {
+          taskDescription.style.textDecoration = 'line-through';
+        } else {
+          taskDescription.style.textDecoration = 'none';
+        }
+      });
     });
 
     const clearCompletedTasks = () => {
