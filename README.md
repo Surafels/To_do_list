@@ -1,9 +1,9 @@
-# mic-awesome-books
+# mic-Todo list-Add and remove 
 
 <a name="readme-top"></a>
 
 <div align="center">
-  <h2>AwesomeBooks</h2>
+  <h2>To Do List</h2>
   <br/>
 </div>
 
@@ -26,9 +26,9 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 Project name <a name="To do List"></a>
+# 📖 Todo List <a name="Todo List - Add and remove"></a>
 
-**Awesome Books** A todo list website is a web application that allows users to create, manage, and organize tasks or items they need to do. It provides a user-friendly interface where users can add new tasks, mark tasks as completed, and remove tasks from the list.
+**Todo List** A to-do list website is a web application that allows users to create, manage, and organize tasks or items they need to do. It provides a user-friendly interface where users can add new tasks, mark tasks as completed, and remove tasks from the list.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -68,7 +68,7 @@ Software
 Clone this repository to your desired folder Enter the following commands in the terminal:
 
 ```sh
-  git clone https://github.com/Surafels/To_do_list.git
+  git clone[https://github.com/Surafels/To_do_list.git]
 ```
 
 ### Install
@@ -135,7 +135,7 @@ npx eslint .
  
 ## 🤝 Contributing <a name="contributing"></a>
 
-You are welcome, and click <a href="https://github.com/Surafels/Awesome_books_ES6/issues">here</a> for any issues🙏
+You are welcome, and click <a href="https://github.com/Surafels/To_do_list/issues">here</a> for any issues🙏
 
 ## ⭐️ Show your support <a name="support"></a>
 
