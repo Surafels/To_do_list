@@ -25,7 +25,7 @@ const myTodoList = () => {
           ellipsisIcon.addEventListener('click', () => {
             saveList.splice(index, 1);
             saveList.forEach((task, newIndex) => {
-              task.index = newIndex +1;
+              task.index = newIndex + 1;
             });
             updateLocalStorage();
             listElement();
