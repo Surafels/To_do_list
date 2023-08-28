@@ -1,4 +1,4 @@
-# mic-Todo list-Add and remove 
+# mic-Todo list
 
 <a name="readme-top"></a>
 
