@@ -1,23 +1,17 @@
 import './style.css';
-import {updateLocalStorage, markComplete} from "./modules/intra.js";
-// import { updateLocalStorage}  from "./modules/intra.js";
-const myTodoList = () => {
-//   let saveList = JSON.parse(localStorage.getItem('saveList')) || [];
+import { updateLocalStorage, markComplete } from './modules/intra.js';
 
+const myTodoList = () => {
   let saveList;
   try {
-    saveList = JSON.parse(localStorage.getItem('saveList')) || [];
+    const savedData = localStorage.getItem('saveList');
+    saveList = JSON.parse(savedData) || [];
   } catch (error) {
-    console.error('Error parsing saveList from local storage:', error);
     saveList = [];
   }
 
-
-
   const list = document.getElementById('listItem');
   const clearComplete = document.getElementById('clearButton');
-
- 
 
   const removeTask = (index, listElement) => {
     if (index >= 0 && index < saveList.length) {
@@ -62,7 +56,7 @@ const myTodoList = () => {
     taskElement.parentNode.replaceChild(input, taskElement);
     input.focus();
   };
-  
+
   const listElement = () => {
     list.innerHTML = '';
 
@@ -73,20 +67,10 @@ const myTodoList = () => {
       const completeCheckbox = document.createElement('input');
       completeCheckbox.type = 'checkbox';
       completeCheckbox.checked = task.complete;
-      completeCheckbox.addEventListener('change', (event) => {
-        markComplete(index, event.target.checked);
-      
-
-      if(event.target.checked){
-        taskDescription.style.textDecoration = 'line-through';
-      }else{
-        taskDescription.style.textDecoration = 'none';
-      }
-      });
 
       const taskDescription = document.createElement('p');
       taskDescription.innerText = task.description;
-      if(task.complete){
+      if (task.complete) {
         taskDescription.style.textDecoration = 'line-through';
       }
       taskDescription.addEventListener('click', () => {
@@ -99,32 +83,32 @@ const myTodoList = () => {
         removeTask(index, listElement);
       });
 
-      completeTask.appendChild(completeCheckbox);
-      completeTask.appendChild(taskDescription);
-      completeTask.appendChild(ellipsisIcon);
-      list.appendChild(completeTask);
-
-      completeCheckbox.addEventListener('click', (event) => {
+      completeCheckbox.addEventListener('change', (event) => {
         markComplete(index, event.target.checked);
+
         if (event.target.checked) {
           taskDescription.style.textDecoration = 'line-through';
         } else {
           taskDescription.style.textDecoration = 'none';
         }
       });
-    });
-    const clearCompletedTasks = () => {
-        let saveList = JSON.parse(localStorage.getItem('saveList')) || [];
 
-        saveList = saveList.filter((task) => !task.complete);
-        updateLocalStorage(saveList);
-        listElement();
-      };
-      clearComplete.addEventListener('click', () => {
-        clearCompletedTasks(); 
-      });
-    
+      completeTask.appendChild(completeCheckbox);
+      completeTask.appendChild(taskDescription);
+      completeTask.appendChild(ellipsisIcon);
+      list.appendChild(completeTask);
+    });
   };
+
+  const clearCompletedTasks = () => {
+    const saveLists = JSON.parse(localStorage.getItem('saveList')) || [];
+
+    saveList = saveLists.filter((task) => !task.complete);
+    updateLocalStorage(saveList);
+    listElement();
+  };
+
+  clearComplete.addEventListener('click', clearCompletedTasks);
 
   const addNewElement = (event) => {
     event.preventDefault();
@@ -153,9 +137,4 @@ const myTodoList = () => {
   });
 };
 
-
-
-
-
 document.addEventListener('DOMContentLoaded', myTodoList);
-
