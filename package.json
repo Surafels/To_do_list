@@ -4,12 +4,14 @@
   "description": "<a name=\"readme-top\"></a>",
   "main": "index.js",
   "scripts": {
+    "deploy": "gh-pages -d dist",
     "start": "webpack serve --open",
     "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepages":"https://Surafels.hithub.io/To_do_list",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.8.1",
@@ -26,5 +28,8 @@
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "gh-pages": "^6.0.0"
   }
 }
